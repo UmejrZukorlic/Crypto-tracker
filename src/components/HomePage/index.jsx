@@ -2,13 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CryptoContext } from "../Context/context";
 const HomePage = () => {
-  const mainUrl = "cryptocompare.com";
   const [data, setData] = useState();
 
   const { apiKey, baseUrl, urlParms } = useContext(CryptoContext);
 
   useEffect(() => {
-    axios.get(`${baseUrl}${urlParms}${apiKey}`).then((respone) => {
+    axios.get(`${baseUrl}/${urlParms}${apiKey}`).then((respone) => {
       console.log(respone.data.Data);
       setData(respone.data.Data);
     });
@@ -19,7 +18,7 @@ const HomePage = () => {
         return (
           <div>
             <img
-              src={mainUrl + e.CoinInfo.ImageUrl}
+              src={`https://cryptoicons.org/api/icon/${e.CoinInfo.Name.toLowerCase()}/600`}
               alt={e.CoinInfo.FullName}
             />
             <h1>{e.CoinInfo.FullName}</h1>
