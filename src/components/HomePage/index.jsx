@@ -11,7 +11,7 @@ const HomePage = () => {
       console.log(respone.data.Data);
       setData(respone.data.Data);
     });
-  }, []);
+  }, [baseUrl, urlParms, apiKey]);
   return (
     <div>
       {data?.map((e) => {
