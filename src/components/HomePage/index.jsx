@@ -18,7 +18,7 @@ const HomePage = () => {
         return (
           <div>
             <img
-              src={`https://cryptoicons.org/api/icon/${e.CoinInfo.Name.toLowerCase()}/600`}
+              src={`https://raw.githubusercontent.com/cjdowner/cryptocurrency-icons/master/32/color/${e.CoinInfo.Name.toLowerCase()}.png`}
               alt={e.CoinInfo.FullName}
             />
             <h1>{e.CoinInfo.FullName}</h1>
