@@ -7,7 +7,7 @@ const HomePage = () => {
   const { apiKey, baseUrl, urlParms } = useContext(CryptoContext);
 
   useEffect(() => {
-    axios.get(`${baseUrl}/${urlParms}${apiKey}`).then((respone) => {
+    axios.get("").then((respone) => {
       console.log(respone.data.Data);
       setData(respone.data.Data);
     });
@@ -17,10 +17,7 @@ const HomePage = () => {
       {data?.map((e) => {
         return (
           <div>
-            <img
-              src={`https://raw.githubusercontent.com/cjdowner/cryptocurrency-icons/master/32/color/${e.CoinInfo.Name.toLowerCase()}.png`}
-              alt={e.CoinInfo.FullName}
-            />
+            <img src={``} alt={e.CoinInfo.FullName} />
             <h1>{e.CoinInfo.FullName}</h1>
             <p>{e.DISPLAY.USD.PRICE}</p>
           </div>
