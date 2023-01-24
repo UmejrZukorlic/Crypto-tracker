@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CryptoContext } from "../Context/context";
+
 const HomePage = () => {
   const [data, setData] = useState();
 
