@@ -4,22 +4,22 @@ import { CryptoContext } from "../Context/context";
 const HomePage = () => {
   const [data, setData] = useState();
 
-  const { apiKey, baseUrl, urlParms } = useContext(CryptoContext);
+  const { baseUrl, urlParms } = useContext(CryptoContext);
 
   useEffect(() => {
-    axios.get("").then((respone) => {
-      console.log(respone.data.Data);
-      setData(respone.data.Data);
+    axios.get(`${baseUrl}${urlParms}`).then((respone) => {
+      console.log(respone.data);
+      setData(respone.data);
     });
-  }, [baseUrl, urlParms, apiKey]);
+  }, [baseUrl, urlParms]);
   return (
     <div>
-      {data?.map((e) => {
+      {data?.map((e, i) => {
         return (
-          <div>
-            <img src={``} alt={e.CoinInfo.FullName} />
-            <h1>{e.CoinInfo.FullName}</h1>
-            <p>{e.DISPLAY.USD.PRICE}</p>
+          <div key={i}>
+            <h1>{e.name}</h1>
+            <img src={e.image} alt={e.id} />
+            <p>{e.current_price}$</p>
           </div>
         );
       })}

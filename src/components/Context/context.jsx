@@ -3,12 +3,13 @@ import React, { createContext, useState } from "react";
 const CryptoContext = createContext();
 export { CryptoContext };
 const Context = (props) => {
-  const apiKey = "5840f4f8-dfbc-4361-98e0-9855a07142ef";
-  const baseUrl = "'https://pro-api.coinmarketcap.com/v1/cryptocurrency/";
-  const [urlParms, setUrlParms] = useState("listings/latest");
+  const baseUrl = "https://api.coingecko.com/api/v3/";
+  const [urlParms, setUrlParms] = useState(
+    "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+  );
 
   return (
-    <CryptoContext.Provider value={{ apiKey, baseUrl, urlParms, setUrlParms }}>
+    <CryptoContext.Provider value={{ baseUrl, urlParms, setUrlParms }}>
       {props.children}
     </CryptoContext.Provider>
   );
